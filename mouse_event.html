@@ -9,47 +9,54 @@
 
  
  *{margin:0; padding:0;}
+ :root{font-size:16px;}
+
  body{max-width:100%; height:auto;
  background-color:rgba(183, 181, 207, 0.877); 
  }
 
- h1{padding:1rem; border:2px solid rgba(11, 185, 25, 0.719); 
+ h1{
+     padding:1rem; border:2px solid rgba(11, 185, 25, 0.719); 
     width:30vw;
-    margin-left:30vw;
+    margin:3rem 30vw;
     text-align:center;
     background-color: bisque; 
     border-radius:1.5rem;
    
   }
-  ul{ font-size:2rem;}
+  ul{ list-style:none;
+      font-size:1.3rem;
+        border:1px solid red;
+        width:70vw;
+        margin-left:10vw;
+        line-height:1.5;
+        padding:1rem;
+        text-align:center;
+  }
 
-  ul li{margin-left:1rem;  }
-  ul li span{
+  ul li{margin-left:1rem; padding:0.3rem;
+     
+   }
+
+   ul li:hover{
+       background-color: gray;
+   }
+  ul li span{ display:none;
       font-size:1rem;
-      border:1px solid red;
+      border:1px dotted rgb(17, 168, 123);
       padding:0.3rem;
+      background-color: honeydew;
          
   }
- 
-  .hr{ display:inline-block;
-            border:5px solid blue;
-            margin:2rem ;
-            padding:15rem;
-  }
 
-  .hr:before{
-      content:"박스 공간";
-      display:block;
-      border:1px solid red;
-      line-height:2rem;   
-      padding:3rem;
-      margin-bottom:3rem;
-  }
+  hr{margin: 2rem 0;}
+ 
+ .highlight{background-color:blue;}
+
+ table{margin:2rem;}
+
+ table td{padding:1rem; border:1px solid #fff; margin-right:2rem;}
   
-  .hr:after{
-      content:"박스 공간 끝";
-      display:block;
-  }
 </style>
 
 </head>
@@ -77,8 +84,112 @@
         </li>
      </ul>
 
-      <span class="hr"> 
-      </span>  
+      <hr/>
+
+      <div id = "example">
+       
+        <table>
+          <tr>
+            <th> 이벤트 보조키 </th>
+            <th> 이벤트 설명   </th>            
+          </tr>
+          <tr>
+            <td>shiftkey </td>
+            <td> event.shiftKey </td>
+          </tr>
+          <tr>
+            <td>altKey </td>
+            <td> event.altKey </td>
+          </tr>
+          <tr>
+            <td>ctrlKey </td>
+            <td> event.ctrlKey </td>
+          </tr>
+        </table>
+
+     </div>
+
+  <script>
+    let table = document.querySelector("table");
+   
+    let selectedTd; 
+
+    table.addEventListener("click", function(event){
+         let target = event.target;
+         let td = event.target.closest('td');
+         if(target.tagName != 'TD') {return;}
+         else { highlight(td);}
+       
+    });
+
+    function highlight(td) {
+        if(selectedTd){
+            selectedTd.classList.remove('highlight');
+        }
+        selectedTd = td;
+       selectedTd.classList.add('highlight');
+        
+      }    
+       
+
+      
+
+    let ul = document.querySelector("ul");
+    // let liTarget = event.target; 
+    // let liSpan = event.target.closest('li');
+        // console.log(ul.children);
+    
+
+    ul.addEventListener("click", function(event){
+        ul.children[0].style = "display:block";
+       let liTarget = event.target; 
+           // console.log(liTarget);
+
+       
+
+        liTarget.children[0].style = "display:block";
+       
+        return false;
+            // for(let i=0; i<li.length; i++){
+
+            //     li[i].style.color= "red";
+            // }
+
+        //   event.target.style.color= "red";
+
+    } );
+
+
+  
+    ul.addEventListener("dblclick", function(event){
+      
+           
+        let li = document.querySelectorAll("li");
+        let liSpan = event.target;
+
+                     // console.log(liTarget);
+            liSpan.children[0].style = "display:none";
+
+          
+             
+           return false;
+           
+    
+                // for(let i=0; i<li.length; i++){
+    
+                //     li[i].style.color= "red";
+                // }
+    
+            //   event.target.style.color= "red";
+    
+        } );
+    
+        
+
+
+
+  </script>    
+
 
      <div>
          <P> 연습하기 </P>
