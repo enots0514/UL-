@@ -4,6 +4,54 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>마우스 이벤트</title>
+
+<style>
+
+ 
+ *{margin:0; padding:0;}
+ body{max-width:100%; height:auto;
+ background-color:rgba(183, 181, 207, 0.877); 
+ }
+
+ h1{padding:1rem; border:2px solid rgba(11, 185, 25, 0.719); 
+    width:30vw;
+    margin-left:30vw;
+    text-align:center;
+    background-color: bisque; 
+    border-radius:1.5rem;
+   
+  }
+  ul{ font-size:2rem;}
+
+  ul li{margin-left:1rem;  }
+  ul li span{
+      font-size:1rem;
+      border:1px solid red;
+      padding:0.3rem;
+         
+  }
+ 
+  .hr{ display:inline-block;
+            border:5px solid blue;
+            margin:2rem ;
+            padding:15rem;
+  }
+
+  .hr:before{
+      content:"박스 공간";
+      display:block;
+      border:1px solid red;
+      line-height:2rem;   
+      padding:3rem;
+      margin-bottom:3rem;
+  }
+  
+  .hr:after{
+      content:"박스 공간 끝";
+      display:block;
+  }
+</style>
+
 </head>
 <body>
      <h1>마우스 이벤트 종류</h1>
@@ -28,7 +76,10 @@
             <span> 마우스 오른쪽 버튼을 눌렀을 때 발생한다.  </span>
         </li>
      </ul>
-    
+
+      <span class="hr"> 
+      </span>  
+
      <div>
          <P> 연습하기 </P>
          <span>마우스 이벤트 </span>
